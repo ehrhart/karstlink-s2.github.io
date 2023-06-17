@@ -1,0 +1,279 @@
+<!doctype html>
+<!-- Start of HTML5 document -->
+<html lang="en">
+<!-- Metadata section -->
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-duplicate@0.1.0/dist/jquery-duplicate.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contribute</title>
+    <!-- Document title -->
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- jQuery script -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <!-- Popper.js script -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/contri.css">
+    <!--Datetime bootstrap begins-->
+    <!-- Datetime picker stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.css">
+    <!--datetime boostrap ends-->
+  </head>
+  <!-- End of metadata section -->
+
+  <body>
+    <!--NAVIGATION BAR BLOCK STARTS-->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #48022f">
+      <a class="navbar-brand" href="#">Cave</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Contribute <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./search.html">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./user.html">User Profile</a>
+          </li>
+        </ul>
+        <!--Logout class-->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: white;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--NAVIGATION BAR BLOCK ENDS-->
+    <!--FORM-->
+<div class="container mt-5 border border-dark p-4 show-btn" id="form1">
+  <h3 style="text-align:center ;">ADD YOUR CONTRIBUTIONS</h3>
+  
+  <!--form-1-->
+  <form id="contribute-form1">
+  
+     <!--CHOICE BETWEEN FIELDS-->
+     <div class="row mb-3 mt-3">
+        <label for="field-choice" class="col-sm-2 col-form-label">Choose an Input Field</label>
+        <div class="col-sm-10">
+           <select class="form-control" id="field-choice">
+              <option value="cave">Cave ID</option>
+              <option value="observation">The functionality of Point of Observation is not fully implemented. Please choose Cave ID.</option>
+           </select>
+        </div>
+     </div>
+   
+     <!--CAVE ID-->
+     <div class="row mb-3 mt-3" id="cave-input">
+        <label for="cave" class="col-sm-2 col-form-label">Cave ID</label>
+        <div class="col-sm-10">
+           <input type="text" class="form-control" id="cave" placeholder="e.g. 37689">
+        </div>
+     </div>
+   
+     <!--POINT OF OBSERVATION-->
+     <div class="row mb-3" id="observation-input">
+        <div class="col-md-2">
+           <label for="point" class=" col-form-label">Point Of Observation</label>  
+        </div>
+        <div class="col-md-7">
+           <input type="text" class="form-control" id="point">
+        </div>
+        <div class="col-md-3">
+           <input type="text" class="form-control" id="coordinate" placeholder="Coordinate System e.g. WGS84">
+        </div>
+     </div>
+   
+     <!--FILE UPLOAD/URL-->
+     <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Upload File</label>
+        <div class="input-group col-sm-10">
+           <input type="file" class="form-control" id="upload" style="display:none">
+           <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Enter Your CSV File URL">
+           <div class="input-group-text" onclick="showUpload()">Upload</div>
+        </div>
+     </div>
+   
+     <!--Date time-->
+     <div class="row mb-3">
+        <div class="col-md-2">
+           <label for="upload" class=" col-form-label">Date And Time</label>  
+        </div>
+        <div class="col-md-3">
+           <input type="text" class="form-control datetimepicker" id="datetimepicker" name="datetimepicker" placeholder="Begin DateTime">
+        </div>
+        <div class="col-md-3">
+           <input type="text" class="form-control datetimepicker" id="datetimepickerend" name="datetimepickerend" placeholder="End DateTime">
+        </div>
+    
+        <!--TIMEZONE DROPDOWN BLOCK STARTS-->
+        <div class="col-md-4">
+           <select class="form-control timezone-select" id="end-timezone">
+              <option value="" selected="selected">Choose Timezone</option>
+              <option value="Dateline Standard Time">(GMT-12:00) International Date Line West</option>
+              <option value="Samoa Standard Time">(GMT-11:00) Midway Island, Samoa</option>
+              <option value="Hawaiian Standard Time">(GMT-10:00) Hawaii</option>
+              <option value="Alaskan Standard Time">(GMT-09:00) Alaska</option>
+              <option value="Pacific Standard Time">(GMT-08:00) Pacific Time (US and Canada); Tijuana</option>
+              <option value="Mountain Standard Time">(GMT-07:00) Mountain Time (US and Canada)</option>
+              <option value="Mexico Standard Time 2">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+              <option value="U.S. Mountain Standard Time">(GMT-07:00) Arizona</option>
+              <option value="Central Standard Time">(GMT-06:00) Central Time (US and Canada</option>
+              <option value="Canada Central Standard Time">(GMT-06:00) Saskatchewan</option>
+              <option value="Mexico Standard Time">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+              <option value="Central America Standard Time">(GMT-06:00) Central America</option>
+              <option value="Eastern Standard Time">(GMT-05:00) Eastern Time (US and Canada)</option>
+              <option value="U.S. Eastern Standard Time">(GMT-05:00) Indiana (East)</option>
+              <option value="S.A. Pacific Standard Time">(GMT-05:00) Bogota, Lima, Quito</option>
+              <option value="Atlantic Standard Time">(GMT-04:00) Atlantic Time (Canada)</option>
+              <option value="S.A. Western Standard Time">(GMT-04:00) Caracas, La Paz</option>
+              <option value="Pacific S.A. Standard Time">(GMT-04:00) Santiago</option>
+              <option value="Newfoundland and Labrador Standard Time">(GMT-03:30) Newfoundland and Labrador</option>
+              <option value="E. South America Standard Time">(GMT-03:00) Brasilia</option>
+              <option value="S.A. Eastern Standard Time">(GMT-03:00) Buenos Aires, Georgetown</option>
+              <option value="Greenland Standard Time">(GMT-03:00) Greenland</option>
+              <option value="Mid-Atlantic Standard Time">(GMT-02:00) Mid-Atlantic</option>
+              <option value="Azores Standard Time">(GMT-01:00) Azores</option>
+              <option value="Cape Verde Standard Time">(GMT-01:00) Cape Verde Islands</option>
+              <option value="GMT Standard Time">(GMT) Greenwich Mean Time: Dublin, Edinburgh, Lisbon, London</option>
+              <option value="Greenwich Standard Time">(GMT) Casablanca, Monrovia</option>
+              <option value="Central Europe Standard Time">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+              <option value="Central European Standard Time">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+              <option value="Romance Standard Time">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+              <option value="W. Europe Standard Time">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+              <option value="W. Central Africa Standard Time">(GMT+01:00) West Central Africa</option>
+              <option value="E. Europe Standard Time">(GMT+02:00) Bucharest</option>
+              <option value="Egypt Standard Time">(GMT+02:00) Cairo</option>
+              <option value="FLE Standard Time">(GMT+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius</option>
+              <option value="GTB Standard Time">(GMT+02:00) Athens, Istanbul, Minsk</option>
+              <option value="Israel Standard Time">(GMT+02:00) Jerusalem</option>
+              <option value="South Africa Standard Time">(GMT+02:00) Harare, Pretoria</option>
+              <option value="Russian Standard Time">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+              <option value="Arab Standard Time">(GMT+03:00) Kuwait, Riyadh</option>
+              <option value="E. Africa Standard Time">(GMT+03:00) Nairobi</option>
+              <option value="Arabic Standard Time">(GMT+03:00) Baghdad</option>
+              <option value="Iran Standard Time">(GMT+03:30) Tehran</option>
+              <option value="Arabian Standard Time">(GMT+04:00) Abu Dhabi, Muscat</option>
+              <option value="Caucasus Standard Time">(GMT+04:00) Baku, Tbilisi, Yerevan</option>
+              <option value="Transitional Islamic State of Afghanistan Standard Time">(GMT+04:30) Kabul</option>
+              <option value="Ekaterinburg Standard Time">(GMT+05:00) Ekaterinburg</option>
+              <option value="West Asia Standard Time">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+              <option value="India Standard Time">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+              <option value="Nepal Standard Time">(GMT+05:45) Kathmandu</option>
+              <option value="Central Asia Standard Time">(GMT+06:00) Astana, Dhaka</option>
+              <option value="Sri Lanka Standard Time">(GMT+06:00) Sri Jayawardenepura</option>
+              <option value="N. Central Asia Standard Time">(GMT+06:00) Almaty, Novosibirsk</option>
+              <option value="Myanmar Standard Time">(GMT+06:30) Yangon Rangoon</option>
+              <option value="S.E. Asia Standard Time">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+              <option value="North Asia Standard Time">(GMT+07:00) Krasnoyarsk</option>
+              <option value="China Standard Time">(GMT+08:00) Beijing, Chongqing, Hong Kong SAR, Urumqi</option>
+              <option value="Singapore Standard Time">(GMT+08:00) Kuala Lumpur, Singapore</option>
+              <option value="Taipei Standard Time">(GMT+08:00) Taipei</option>
+              <option value="W. Australia Standard Time">(GMT+08:00) Perth</option>
+              <option value="North Asia East Standard Time">(GMT+08:00) Irkutsk, Ulaanbaatar</option>
+              <option value="Korea Standard Time">(GMT+09:00) Seoul</option>
+              <option value="Tokyo Standard Time">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+              <option value="Yakutsk Standard Time">(GMT+09:00) Yakutsk</option>
+              <option value="A.U.S. Central Standard Time">(GMT+09:30) Darwin</option>
+              <option value="Cen. Australia Standard Time">(GMT+09:30) Adelaide</option>
+              <option value="A.U.S. Eastern Standard Time">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+              <option value="E. Australia Standard Time">(GMT+10:00) Brisbane</option>
+              <option value="Tasmania Standard Time">(GMT+10:00) Hobart</option>
+              <option value="Vladivostok Standard Time">(GMT+10:00) Vladivostok</option>
+              <option value="West Pacific Standard Time">(GMT+10:00) Guam, Port Moresby</option>
+              <option value="Central Pacific Standard Time">(GMT+11:00) Magadan, Solomon Islands, New Caledonia</option>
+              <option value="Fiji Islands Standard Time">(GMT+12:00) Fiji Islands, Kamchatka, Marshall Islands</option>
+              <option value="New Zealand Standard Time">(GMT+12:00) Auckland, Wellington</option>
+              <option value="Tonga Standard Time">(GMT+13:00) Nuku'alofa</option>
+           </select>
+        </div>
+        <!--TIMEZONE DROPDOWN BLOCK ENDS-->
+     </div>
+<!-- SENSOR TYPE -->
+<div class="row mb-3">
+   <div class="col-md-2">
+     <label for="upload" class="col-form-label">Sensor Type</label>
+   </div>
+   <div class="col-md-10 dropdown show">
+     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <span class="dropdown-label">Choose</span>
+     </a>
+     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="SensorDropdown">
+       <!-- Dropdown items will be populated dynamically -->
+     </div>
+   </div>
+ </div>
+
+
+</div>
+
+<!--FORM-2-->
+
+<div class="container mt-5 border border-dark p-4 hide-btn"  id="form2">
+<h3 style="text-align:center ;">ADD NEW SENSOR DETAILS</h3>
+<form id="contribute-form2">
+
+<!--sensor NAME-->
+<div class="row mb-3 mt-3">
+<label for="cave" class="col-sm-2 col-form-label">Sensor Name</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="sensor-name" placeholder="Please enter the Sensor Name">
+</div>
+</div>
+
+<!--sensor TYPE-->
+<div class="row mb-3">
+<label for="sensor" class="col-sm-2 col-form-label">Sensor Type</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="sensor" placeholder="Please enter the Sensor Type">
+</div>
+</div> 
+
+<!--sensor MANUFACTURER-->   
+<div class="row mb-3">
+<label for="manufacturer" class="col-sm-2 col-form-label">Manufacturer</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="manufacturer" placeholder="Please enter the Manufacturer">
+</div>
+</div>        
+
+
+<!--SENSOR NAME-->
+<div id="sensor-name-field" class="row mb-3" style="display: none;">
+<label for="sensor-name" class="col-sm-2 col-form-label">Sensor Name</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="sensor-name" placeholder="Enter Sensor Name">
+</div>
+</div>
+<!--ENDS-->
+</div>
+</div>
+<!--SUBMIT BUTTON-->
+<div class="row">
+<div class="container d-flex justify-content-center" style="display:flex;">
+
+<button id="back-btn" type="button" class="btn btn-secondary hide-btn mr-1 mt-3 pl-3 pr-3" onclick="form1()">BACK</button>
+<button id="create-btn" type="button" class="btn btn-secondary mt-3" onclick="createSensor()" style="display: none">CREATE</button>
+<button id="submit-btn" type="button" class="btn btn-secondary mt-3">SUBMIT</button>
+<button id="next-btn" type="button" class="btn btn-secondary m-1 mt-3" onclick="form2()" style="display: none">NEXT</button>
+</div>
+</div>
+</div> 
+</form>
+    <script src="../js/contribute_script.js"></script>
+    <!--DATETIME SCRIPT BLOCK BEGINS-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.1.0/daterangepicker.min.js"></script>
+    <!--DATETIME SCRIPT BLOCK ENDS-->
+  </body>
+</html>
