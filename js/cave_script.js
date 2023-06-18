@@ -24,7 +24,7 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
       success: function(response) {
         if (response.success) {
           var cave = response.data;
-  
+  console.log(cave);
           // Display the cave details on the page
           var caveDetailsContainer = $('#cave-details-container');
   
