@@ -137,7 +137,7 @@ btnSignIn.addEventListener('click', () => {
 				setTimeout(() => {
 				window.location.href = './html/user.html';
 				  }, 10000);
-                window.location.href = './html/user.html';
+                //window.location.href = './html/user.html';
             } 
 			
 			else { 
