@@ -163,6 +163,7 @@ $(document).ready(function() {
                 // Iterate over the caves and display the details in the table
                 results.forEach(function(cave) {
                   var caveData = cave.cave;
+			console.log(cave["@id"]);
                   var row = $('<tr>').appendTo(tbody);
                   row.append('<td>' + caveData.name + '</td>');
                   row.append('<td>' + (cave["@id"] || caveData.id) + '</td>');
@@ -176,7 +177,8 @@ $(document).ready(function() {
                   var button = $('<button>').text('View').addClass('btn btn-secondary');
                   button.click(function() {
                     // Redirect to another page when the button is clicked
-                  window.location.href = '../html/cave.html?id=' + caveData.id;
+                  //window.location.href = '../html/cave.html?id=' + caveData.id;
+		window.location.href = '../html/cave.html?id=' + cave["@id"];
                     
                   });
                   button.appendTo(buttonCell);
