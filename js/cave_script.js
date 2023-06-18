@@ -44,12 +44,15 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
       
               dataRow = $('<tr>').appendTo(tbody);
               dataRow.append('<td>Begin Date:</td>');
-              dataRow.append('<td>' + cave[i].beginDate + '</td>');
-      
-              // Add more rows for other cave details as needed
+	      var beginDate = new Date(cave[i].beginDate).toLocaleString();
+              dataRow.append('<td>' + beginDate + '</td>');
+              //dataRow.append('<td>' + cave[i].beginDate + '</td>');
+              
               dataRow = $('<tr>').appendTo(tbody);
               dataRow.append('<td>End Date:</td>');
-              dataRow.append('<td>' + cave[i].endDate + '</td>');
+              //dataRow.append('<td>' + cave[i].endDate + '</td>');
+	     var endDate = new Date(cave[i].endDate).toLocaleString();
+             dataRow.append('<td>' + endDate + '</td>');
       
               dataRow = $('<tr>').appendTo(tbody);
               dataRow.append('<td>TimeZone:</td>');
