@@ -1,6 +1,8 @@
 $(document).ready(function() {
     // Retrieve the cave ID from the query parameter
-    var caveId = getQueryParameter('caveId');
+    //var caveId = getQueryParameter('caveId');
+	var caveId = getQueryParameter('id');
+	console.log(caveId);
     // Retrieve the bearer token from local storage
     var token = localStorage.getItem('token');
     if (!token) {
@@ -11,8 +13,8 @@ $(document).ready(function() {
   
     // Make the API request to retrieve the cave details
     //var apiUrl = 'http://localhost:8083/api/caveObservation?filter={"caveId":"' + caveId + '"}';
-	var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"caveId":"${caveId}"}`;
-
+	//var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"caveId":"${caveId}"}`;
+var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"caveId":"${caveId}"}`;
     $.ajax({
       url: apiUrl,
       type: 'GET',
@@ -30,16 +32,38 @@ $(document).ready(function() {
             var table = $('<table>').addClass('table');
             var tbody = $('<tbody>').appendTo(table);
   
-            var dataRow = $('<tr>').appendTo(tbody);
-            dataRow.append('<td>ID:</td>');
-            dataRow.append('<td>' + cave.id + '</td>');
-  
+            for (var i = 0; i < cave.length; i++) {
+              if (i > 0) {
+                // Add a new line between each new caveId
+                var newLineRow = $('<tr>').appendTo(tbody);
+                newLineRow.append('<td colspan="2"><hr class="line"></td>');
+              }
+              var dataRow = $('<tr>').appendTo(tbody);
+              dataRow.append('<td>Cave ID:</td>');
+              dataRow.append('<td>' + cave[i].caveId + '</td>');
+      
+              dataRow = $('<tr>').appendTo(tbody);
+              dataRow.append('<td>Begin Date:</td>');
+              dataRow.append('<td>' + cave[i].beginDate + '</td>');
+      
+              // Add more rows for other cave details as needed
+              dataRow = $('<tr>').appendTo(tbody);
+              dataRow.append('<td>End Date:</td>');
+              dataRow.append('<td>' + cave[i].endDate + '</td>');
+      
+              dataRow = $('<tr>').appendTo(tbody);
+              dataRow.append('<td>TimeZone:</td>');
+              dataRow.append('<td>' + cave[i].timeZone + '</td>');
+      
+              dataRow = $('<tr>').appendTo(tbody);
+              dataRow.append('<td>File URL:</td>');
+              dataRow.append('<td>' + cave[i].filePath + '</td>');
+            }
+            caveDetailsContainer.append(table);
+
             dataRow = $('<tr>').appendTo(tbody);
-            dataRow.append('<td>Name:</td>');
-            dataRow.append('<td>' + cave.name + '</td>');
-  
-            // Add more rows for other cave details as needed
-  
+            dataRow.append('<td>File URL:</td>');
+            dataRow.append('<td>' + cave[0].filePath + '</td>');
             caveDetailsContainer.append(table);
           } 
 
