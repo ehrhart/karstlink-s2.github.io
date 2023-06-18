@@ -86,6 +86,7 @@ signUpButton1.addEventListener('click', () => {
 const btnSignIn = document.getElementById('btnSignIn');
 
 btnSignIn.addEventListener('click', () => {
+	event.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 	const ipAddress = 'localhost';
