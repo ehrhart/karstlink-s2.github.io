@@ -15,6 +15,7 @@ const confirmPasswordInput = document.querySelector('input[placeholder="Confirm 
 const signUpButton1 = document.querySelector('button');
 
 signUpButton1.addEventListener('click', () => {
+	event.preventDefault();
 	if (passwordInput.value !== confirmPasswordInput.value) {
 		alert("Passwords don't match. Please try again.");
 		return false;
