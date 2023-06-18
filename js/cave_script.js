@@ -54,7 +54,8 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
   minute: 'numeric',
   second: 'numeric'
 });
-              dataRow.append('<td>' + beginDate + '</td>');
+              //dataRow.append('<td>' + beginDate + '</td>');
+		    dataRow.append('<td>' + beginDateFormatted + '</td>');
               //dataRow.append('<td>' + cave[i].beginDate + '</td>');
               
               dataRow = $('<tr>').appendTo(tbody);
@@ -70,7 +71,8 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
   minute: 'numeric',
   second: 'numeric'
 });
-             dataRow.append('<td>' + endDate + '</td>');
+             //dataRow.append('<td>' + endDate + '</td>');
+		    dataRow.append('<td>' + endDateFormatted + '</td>');
       
               dataRow = $('<tr>').appendTo(tbody);
               dataRow.append('<td>TimeZone:</td>');
