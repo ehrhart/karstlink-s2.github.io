@@ -100,8 +100,14 @@ btnSignIn.addEventListener('click', () => {
     })
         .then(response => {
             if (!response.ok) {
+				if (response.status === 404) {
+					alert('Invalid email. Please try again.');
+				} else if (response.status === 401) {
+					alert('Invalid password. Please try again.');
+				} else {
                 throw new Error('Error: ' + response.status);
             }
+		}
 			console.log(response);
             return response.json();
         })
