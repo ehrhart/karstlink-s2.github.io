@@ -61,10 +61,10 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
             }
             caveDetailsContainer.append(table);
 
-            dataRow = $('<tr>').appendTo(tbody);
-            dataRow.append('<td>File URL:</td>');
-            dataRow.append('<td>' + cave[0].filePath + '</td>');
-            caveDetailsContainer.append(table);
+            //dataRow = $('<tr>').appendTo(tbody);
+            //dataRow.append('<td>File URL:</td>');
+            //dataRow.append('<td>' + cave[0].filePath + '</td>');
+            //caveDetailsContainer.append(table);
           } 
 
           else {
