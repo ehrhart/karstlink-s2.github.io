@@ -44,14 +44,32 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
       
               dataRow = $('<tr>').appendTo(tbody);
               dataRow.append('<td>Begin Date:</td>');
-	      var beginDate = new Date(cave[i].beginDate).toLocaleString();
+	      //var beginDate = new Date(cave[i].beginDate).toLocaleString();
+		    var beginDate = new Date(cave[i].beginDate);
+		    var beginDateFormatted = beginDate.toLocaleString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+});
               dataRow.append('<td>' + beginDate + '</td>');
               //dataRow.append('<td>' + cave[i].beginDate + '</td>');
               
               dataRow = $('<tr>').appendTo(tbody);
               dataRow.append('<td>End Date:</td>');
               //dataRow.append('<td>' + cave[i].endDate + '</td>');
-	     var endDate = new Date(cave[i].endDate).toLocaleString();
+	     //var endDate = new Date(cave[i].endDate).toLocaleString();
+		    var endDate = new Date(cave[i].endDate);
+		    var endDateFormatted = endDate.toLocaleString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+});
              dataRow.append('<td>' + endDate + '</td>');
       
               dataRow = $('<tr>').appendTo(tbody);
