@@ -136,7 +136,7 @@ btnSignIn.addEventListener('click', () => {
 				// Redirect to the user's dashboard
 				setTimeout(() => {
 				window.location.href = './html/user.html';
-				  }, 10000);
+				  }, 15000);
                 //window.location.href = './html/user.html';
             } 
 			
