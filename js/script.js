@@ -64,7 +64,14 @@ signUpButton1.addEventListener('click', () => {
 				// Display error message
 				//const errorMessage = document.getElementById('errorMessage');
 				//errorMessage.textContent = data.err;
-				alert('Registration failed: ' + data.err);
+				//alert('Registration failed: ' + data.err);
+				console.log(data.err);
+				// Display error message
+				//const errorMessage = document.getElementById('errorMessage');
+				//errorMessage.textContent = data.err;
+				setTimeout(() => {
+					alert('Registration failed: ' + data.err);
+				  }, 10000);
 			}
 			//block ends
 			
