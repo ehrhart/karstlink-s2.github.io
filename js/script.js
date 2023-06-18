@@ -127,6 +127,9 @@ btnSignIn.addEventListener('click', () => {
 				
 				//console.log(token);
 				// Redirect to the user's dashboard
+				setTimeout(() => {
+				window.location.href = './html/user.html';
+				  }, 8000);
                 window.location.href = './html/user.html';
             } 
 			
