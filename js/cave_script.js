@@ -26,71 +26,54 @@ var apiUrl = `https://speleograph.tools.eurecom.fr/api/caveObservation?filter={"
           var cave = response.data;
   console.log(cave);
           // Display the cave details on the page
-          var caveDetailsContainer = $('#cave-details-container');
-  
-          if (cave.length > 0) {
-            var table = $('<table>').addClass('table');
-            var tbody = $('<tbody>').appendTo(table);
-  
-            for (var i = 0; i < cave.length; i++) {
-              if (i > 0) {
-                // Add a new line between each new caveId
-                var newLineRow = $('<tr>').appendTo(tbody);
-                newLineRow.append('<td colspan="2"><hr class="line"></td>');
-              }
-              var dataRow = $('<tr>').appendTo(tbody);
-              dataRow.append('<td>Cave ID:</td>');
-              dataRow.append('<td>' + cave[i].caveId + '</td>');
-      
-              dataRow = $('<tr>').appendTo(tbody);
-              dataRow.append('<td>Begin Date:</td>');
-	      //var beginDate = new Date(cave[i].beginDate).toLocaleString();
-		    var beginDate = new Date(cave[i].beginDate);
-		    var beginDateFormatted = beginDate.toLocaleString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-  second: 'numeric'
-});
-              //dataRow.append('<td>' + beginDate + '</td>');
-		    dataRow.append('<td>' + beginDateFormatted + '</td>');
-              //dataRow.append('<td>' + cave[i].beginDate + '</td>');
-              
-              dataRow = $('<tr>').appendTo(tbody);
-              dataRow.append('<td>End Date:</td>');
-              //dataRow.append('<td>' + cave[i].endDate + '</td>');
-	     //var endDate = new Date(cave[i].endDate).toLocaleString();
-		    var endDate = new Date(cave[i].endDate);
-		    var endDateFormatted = endDate.toLocaleString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-  second: 'numeric'
-});
-             //dataRow.append('<td>' + endDate + '</td>');
-		    dataRow.append('<td>' + endDateFormatted + '</td>');
-      
-              dataRow = $('<tr>').appendTo(tbody);
-              dataRow.append('<td>TimeZone:</td>');
-              dataRow.append('<td>' + cave[i].timeZone + '</td>');
-      
-              dataRow = $('<tr>').appendTo(tbody);
-              dataRow.append('<td>File URL:</td>');
-	console.log(i);
-	console.log(cave[i].filePath);
-              dataRow.append('<td>' + cave[i].filePath + '</td>');
-            }
-            caveDetailsContainer.append(table);
+ var caveDetailsContainer = $('#cave-details-container');
 
-            //dataRow = $('<tr>').appendTo(tbody);
-            //dataRow.append('<td>File URL:</td>');
-            //dataRow.append('<td>' + cave[0].filePath + '</td>');
-            //caveDetailsContainer.append(table);
-          } 
+if (cave.length > 0) {
+  var table = $('<table>').addClass('table');
+  var thead = $('<thead>').appendTo(table);
+  var tbody = $('<tbody>').appendTo(table);
+
+  // Create the header row
+  var headerRow = $('<tr>').appendTo(thead);
+  headerRow.append('<th>Cave ID</th>');
+  headerRow.append('<th>Begin Date</th>');
+  headerRow.append('<th>End Date</th>');
+  headerRow.append('<th>Timezone</th>');
+  headerRow.append('<th>File URL</th>');
+
+  for (var i = 0; i < cave.length; i++) {
+    var dataRow = $('<tr>').appendTo(tbody);
+    dataRow.append('<td>' + cave[i].caveId + '</td>');
+
+    var beginDate = new Date(cave[i].beginDate);
+    var beginDateFormatted = beginDate.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    });
+    dataRow.append('<td>' + beginDateFormatted + '</td>');
+
+    var endDate = new Date(cave[i].endDate);
+    var endDateFormatted = endDate.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    });
+    dataRow.append('<td>' + endDateFormatted + '</td>');
+
+    dataRow.append('<td>' + cave[i].timeZone + '</td>');
+    dataRow.append('<td>' + cave[i].filePath + '</td>');
+  }
+
+  caveDetailsContainer.append(table);
+}
+
 
           else {
             caveDetailsContainer.empty();
