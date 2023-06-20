@@ -365,7 +365,7 @@ submitButton1.addEventListener('click', () => {
       console.log(data);
       if (data.success) {
         alert('You have successfully contributed to our database.');
-        window.location.href = '../html/search.html';
+        //window.location.href = '../html/search.html';
       }
     })
     .catch(error => {
