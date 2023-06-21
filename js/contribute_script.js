@@ -320,7 +320,7 @@ submitButton1.addEventListener('click', () => {
   const filePath = document.getElementById('autoSizingInputGroup').value;
   const timezoneSelect = document.getElementById('end-timezone');
   const timeZone = timezoneSelect.value;
-
+  console.log(timeZone);
   const ipAddress = 'localhost';
   const port = '8083';
 
