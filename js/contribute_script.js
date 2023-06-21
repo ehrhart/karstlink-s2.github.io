@@ -319,9 +319,12 @@ submitButton1.addEventListener('click', () => {
   const beginDate = document.getElementById('datetimepicker').value;
   const endDate = document.getElementById('datetimepickerend').value;
   const filePath = document.getElementById('autoSizingInputGroup').value;
+  //const timezoneSelect = document.getElementById('end-timezone');
+  //const timeZone = timezoneSelect.value;
+  //console.log(timezoneSelect);
   const timezoneSelect = document.getElementById('end-timezone');
-  const timeZone = timezoneSelect.value;
-   console.log(timezoneSelect);
+  const timeZone = timezoneSelect.options[timezoneSelect.selectedIndex].value;
+console.log(timeZone);	
   const ipAddress = 'localhost';
   const port = '8083';
 
