@@ -304,12 +304,7 @@ $(function() {
 	});
   });
     
-  const timezoneSelect = document.getElementById('end-timezone');
 
-timezoneSelect.addEventListener('change', () => {
-  const timeZone = timezoneSelect.value;
-  console.log('Selected timezone:', timeZone);
-});
 
   
   
@@ -324,9 +319,9 @@ submitButton1.addEventListener('click', () => {
   const beginDate = document.getElementById('datetimepicker').value;
   const endDate = document.getElementById('datetimepickerend').value;
   const filePath = document.getElementById('autoSizingInputGroup').value;
-  //const timezoneSelect = document.getElementById('end-timezone');
+  const timezoneSelect = document.getElementById('end-timezone');
   const timeZone = timezoneSelect.value;
-
+   console.log(timezoneSelect);
   const ipAddress = 'localhost';
   const port = '8083';
 
