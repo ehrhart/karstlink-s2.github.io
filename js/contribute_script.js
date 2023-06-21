@@ -323,7 +323,8 @@ submitButton1.addEventListener('click', () => {
   //const timeZone = timezoneSelect.value;
   //console.log(timezoneSelect);
   const timezoneSelect = document.getElementById('end-timezone');
-  const timeZone = timezoneSelect.options[timezoneSelect.selectedIndex].value;
+  const selectedOption = timezoneSelect.options[timezoneSelect.selectedIndex];
+  const timeZone = selectedOption.text;
 console.log(timeZone);	
   const ipAddress = 'localhost';
   const port = '8083';
