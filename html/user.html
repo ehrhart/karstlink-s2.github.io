@@ -1,99 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
-    
-    <body>
-      <!--NAVIGATION BAR BLOCK STARTS-->
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #48022f">
-        <a class="navbar-brand" href="#">Cave</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #48022f">
+      <a class="navbar-brand" href="#">Cave</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contribution.html">Contribute</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./search.html">Search</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">User Profile <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-          <!--Logout class-->
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html" style="color: white;">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!--NAVIGATION BAR BLOCK ENDS-->        
-      <div class="container mt-5 border border-dark p-4">
-        <h3 style="text-align:center;">USER PROFILE</h3>
-        <style>
-            label
-            {
-              color: #48022f;
-              font-size: 18px;
-            }
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contribution.html">Contribute</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./search.html">Search</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">User Profile <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" style="color: white;">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-            p
-            {
-              font-weight: 500;
-              font-size: 18px;
-              color: #48022f;
-            }
-          </style>
-          
-        <form id="contribute-form">
-          <div class="row mb-4 mt-3" id="license-input">
-            <label for="license" class="col-sm-3 col-form-label">LICENSE NUMBER</label>
-            <div class="col-sm-6">
-            <p id="license"></p>
+    <div class="container mt-5">
+      <h3 style="text-align:center;">USER PROFILE</h3>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+          <div class="card mb-4">
+            <div class="card-header">LICENSE NUMBER</div>
+            <div class="card-body">
+              <p id="license"></p>
             </div>
           </div>
-          <div class="row mb-4 mt-3" id="firstName-input">
-            <label for="firstName" class="col-sm-3 col-form-label">FIRST NAME</label>
-            <div class="col-sm-6">
-            <p id="firstName"></p>
+
+          <div class="card mb-4">
+            <div class="card-header">FIRST NAME</div>
+            <div class="card-body">
+              <p id="firstName"></p>
             </div>
           </div>
-          <div class="row mb-4 mt-3" id="lastName-input">
-            <label for="lastName" class="col-sm-3 col-form-label">LAST NAME</label>
-            <div class="col-sm-6">
-            <p id="lastName"></p>
+
+          <div class="card mb-4">
+            <div class="card-header">LAST NAME</div>
+            <div class="card-body">
+              <p id="lastName"></p>
             </div>
           </div>
-          <div class="row mb-4 mt-3" id="email-input">
-            <label for="email" class="col-sm-3 col-form-label">EMAIL ID</label>
-            <div class="col-sm-6">
-            <p id="email"></p>
+
+          <div class="card mb-4">
+            <div class="card-header">EMAIL ID</div>
+            <div class="card-body">
+              <p id="email"></p>
             </div>
           </div>
-          <div class="row mb-4 mt-3" id="date-input">
-            <label for="email" class="col-sm-3 col-form-label">CREATED ON</label>
-            <div class="col-sm-6">
-            <p id="createdAt"></p>
+
+          <div class="card mb-4">
+            <div class="card-header">CREATED ON</div>
+            <div class="card-body">
+              <p id="createdAt"></p>
             </div>
           </div>
-        </form>
-      </div>  
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="../js/user_script.js"></script>
-      
-    </body>
-      </html>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/user_script.js"></script>
+  </body>
+</html>
