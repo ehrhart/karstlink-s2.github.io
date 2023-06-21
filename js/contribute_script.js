@@ -320,7 +320,12 @@ submitButton1.addEventListener('click', () => {
   const filePath = document.getElementById('autoSizingInputGroup').value;
   const timezoneSelect = document.getElementById('end-timezone');
   const timeZone = timezoneSelect.value;
-  console.log(timeZone);
+  // Add an event listener to the "End Timezone" dropdown menu
+document.getElementById('end-timezone').addEventListener('change', function() {
+  const selectedTimezone = this.value;
+  console.log('Selected timezone:', selectedTimezone);
+});
+
   const ipAddress = 'localhost';
   const port = '8083';
 
