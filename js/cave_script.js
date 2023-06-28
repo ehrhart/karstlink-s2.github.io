@@ -68,7 +68,7 @@ if (cave.length > 0) {
     dataRow.append('<td>' + endDateFormatted + '</td>');
 
     dataRow.append('<td>' + cave[i].timeZone + '</td>');
-    dataRow.append('<td>' + cave[i].filePath + '</td>');
+    dataRow.append(`<td style="font-size:small">` + cave[i].filePath + '</td>');
   }
 
   caveDetailsContainer.append(table);
