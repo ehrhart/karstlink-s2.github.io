@@ -1,3 +1,4 @@
+/*
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -82,7 +83,67 @@ signUpButton1.addEventListener('click', () => {
 			console.error(error);
 		});
 });
+*/
+//ADDING ASYNC AWAIT
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
 
+signUpButton.addEventListener('click', () => {
+  container.classList.add("right-panel-active");
+});
+signInButton.addEventListener('click', () => {
+  container.classList.remove("right-panel-active");
+});
+
+const passwordInput = document.querySelector('input[type="password"]');
+const confirmPasswordInput = document.querySelector('input[placeholder="Confirm Password"]');
+const signUpButton1 = document.querySelector('button');
+
+signUpButton1.addEventListener('click', async () => {
+  event.preventDefault();
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    alert("Passwords don't match. Please try again.");
+    return false;
+  }
+
+  container.classList.add("right-panel-active");
+  console.log("Register");
+  const email = document.querySelector('input[placeholder="email"]').value;
+  const password = passwordInput.value;
+  const firstName = document.querySelector('input[placeholder="firstName"]').value;
+  const lastName = document.querySelector('input[placeholder="lastName"]').value;
+  const license = document.querySelector('input[placeholder="license"]').value;
+
+  const apiUrl = 'https://speleograph.tools.eurecom.fr/api';
+  try {
+    const response = await fetch(`${apiUrl}/user/register`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password, firstName, lastName, license })
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (data.success) {
+      alert('Registration successful!');
+      document.querySelector('input[placeholder="firstName"]').value = '';
+      document.querySelector('input[placeholder="lastName"]').value = '';
+      document.querySelector('input[placeholder="email"]').value = '';
+      document.querySelector('input[placeholder="license"]').value = '';
+      passwordInput.value = '';
+      confirmPasswordInput.value = '';
+    } else {
+      alert('Registration failed: ' + data.err);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 //ADDING ASYNC await
 // LOGIN
