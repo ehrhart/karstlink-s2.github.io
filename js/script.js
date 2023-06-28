@@ -84,6 +84,7 @@ signUpButton1.addEventListener('click', () => {
 });
 
 //LOGIN
+/*
 const btnSignIn = document.getElementById('btnSignIn');
 
 btnSignIn.addEventListener('click', () => {
@@ -154,6 +155,56 @@ btnSignIn.addEventListener('click', () => {
             // Handle any errors that occurred during the request
             console.error(error);
         });
+});
+*/
+//ADDING ASYNC await
+// LOGIN
+const btnSignIn = document.getElementById('btnSignIn');
+
+btnSignIn.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const ipAddress = 'localhost';
+    const port = '8083';
+
+    const apiUrl = 'https://speleograph.tools.eurecom.fr/api';
+    try {
+        const response = await fetch(`${apiUrl}/user/login`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        if (!response.ok) {
+            if (response.status === 404) {
+                alert('Invalid email. Please try again.');
+            } else if (response.status === 401) {
+                alert('Invalid password. Please try again.');
+            } else {
+                throw new Error('Error: ' + response.status);
+            }
+        }
+
+        console.log(response);
+        const data = await response.json();
+
+        console.log(data);
+        if (data.success) {
+            const token = data.data.token;
+            console.log(data);
+            console.log(token);
+            localStorage.setItem('token', token);
+            window.location.href = './html/user.html';
+        } else {
+            alert("Incorrect email or password. Please try again.");
+        }
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 
